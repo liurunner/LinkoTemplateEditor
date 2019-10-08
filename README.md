@@ -3,34 +3,34 @@
 ## General content composing:
 - Copy content from WORD or GOOGLE DOC directly into the editor
 
-  - Choose Keep paste in HTML for composing a Letter Template 
-  - Choose Insert only Text for composing an Email Template 
+  - Choose **Keep** paste in HTML for composing a **Letter Template** 
+  - Choose **Insert only Text** for composing an **Email Template** 
 
 - Able to style from the toolbar:
 
-  - text-style: bold, strike-though, underscore, italic 
-  - subscript: upper, lower
-  - align: left, right, top, bottom
-  - insert bullet list, number list
-  - increase or decrease indent
-  - set font family, font color, fill font background color
-  - insert formatted block: normal, h1, h2, h3, h4, quoted
-  - insert image (embedded base64 images)
+  - Text-style: bold, strike-though, underscore, italic 
+  - Subscript: upper, lower
+  - Align: left, right, top, bottom
+  - Insert bullet list, number list
+  - Increase or decrease indent
+  - Set font family, font color, fill font background color
+  - Insert formatted block: normal, h1, h2, h3, h4, quoted
+  - Insert image (embedded base64 images)
     - Images are resizable
 
-  - insert link
-  - insert table 
-    - table is resizable
-    - can insert row above or bottom
-    - can insert column left or right
-    - can split a cell vertical or horizontal
-    - can align particular cell
-    - can set cell background color
+  - Insert link
+  - Insert table 
+    - Resizable
+    - Can insert row above or bottom
+    - Can insert column left or right
+    - Can split a cell vertical or horizontal
+    - Can align particular cell
+    - Can set cell background color
 
   - Support drag-drop text and images
   - Advanced: can directly modify HTML/CSS/JS code
 
-##Linko Template Specific
+## Linko Template Specific
 
   - Can insert MERGE FIELD which dynamic interpolate to a facility or inspection’s instance field value
    ![Insert Merged Field](public/images/example.png)
