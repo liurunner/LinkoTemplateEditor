@@ -33,6 +33,7 @@
 ##Linko Template Specific
 
   - Can insert MERGE FIELD which dynamic interpolate to a facility or inspection’s instance field value
+   ![Insert Merged Field](public/images/example.png)
 
 
 # Instruction of composing template
