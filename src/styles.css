@@ -1,6 +1,6 @@
 .App {
   font-family: sans-serif;
-  text-align: center;
+  margin: "0 auto" 
 }
 
 .merge-field-popup {
@@ -9,9 +9,11 @@
 
 .merge-field-label {
   width: 250px;
+  text-align: left;
 }
 
-.merge-field-select {
+.merge-field-select {  
+  margin-top: 12px;
   width: 250px;
 }
 
