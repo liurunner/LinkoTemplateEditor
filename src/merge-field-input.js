@@ -2,7 +2,7 @@ import React from "react";
 import config from "./config";
 import * as _ from 'lodash';
 
-const MergeFieldSelector = (props) => {
+const MergeFieldInput = (props) => {
   if (!props.editor) {
     throw new Error('editor is required');
   }
@@ -17,7 +17,7 @@ const MergeFieldSelector = (props) => {
     let mergeField = e.target.value;
     if (mergeField) {
       props.editor.selection.insertNode(
-        props.editor.create.inside.fromHTML("{{" + mergeField + "}}")
+        props.editor.create.inside.fromHTML("<input id=\"" + mergeField + "\" type=\"text\" name=\"" + mergeField + "\" value=\"{{" + mergeField + "}}\"/>")
       );
     }
     props.close();
@@ -47,4 +47,4 @@ const MergeFieldSelector = (props) => {
   );
 }
 
-export default MergeFieldSelector;
+export default MergeFieldInput;

@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import MergeFieldSelector from './merge-field-selector';
+import MergeFieldInput from './merge-field-input';
 
 const defaultButtons = [
   "undo", "redo", "|", "bold", "strikethrough", "underline", "italic", "|", 
@@ -32,26 +33,37 @@ const makeCopyContentButton = () => {
   };
 }
 
-const makeInsertMergeFieldsButton = () => {  
+const makeInsertMergeFieldsSelector = () => {  
   return {
     name: "insertMergeField",
     tooltip: "Insert Merge Field",
     iconURL: "images/merge.png",
     popup: (editor, current, self, close) => {
-      let divElement = editor.create.div("merge-field-popup");
-      ReactDOM.render(<MergeFieldSelector editor={editor}/>, divElement);
+      let divElement = editor.create.div("merge-field-selector-popup");
+      ReactDOM.render(<MergeFieldSelector editor={editor} close={close}/>, divElement);
+      return divElement;
+    }
+  };
+}
+
+const makeInsertMergeFieldsInput = () => {  
+  return {
+    name: "insertMergeInput",
+    tooltip: "Insert Merge Input",
+    iconURL: "images/input_field.png",
+    popup: (editor, current, self, close) => {
+      let divElement = editor.create.div("merge-field-input-popup");
+      ReactDOM.render(<MergeFieldInput editor={editor} close={close}/>, divElement);
       return divElement;
     }
   };
 }
 
 const makeEditorButtons = () => {
-  var buttons =  [...defaultButtons];
-  var mergeFieldButton = makeInsertMergeFieldsButton();
-  buttons.push(mergeFieldButton);
   var copyContentButton = makeCopyContentButton();
-  buttons.push(copyContentButton);
-  return buttons;;
+  var mergeFieldSelector = makeInsertMergeFieldsSelector();
+  var mergeFieldInput = makeInsertMergeFieldsInput();
+  return [...defaultButtons, copyContentButton, "|", mergeFieldSelector, "|", mergeFieldInput];
 }
 
 const makeEditorConfig = () => {
