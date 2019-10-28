@@ -1,0 +1,58 @@
+{
+    "mergeFields": [
+        {
+            "group": "Common",
+            "path": "",
+            "fields": [
+                { "name": "AuthorityId",              "type": "number" },
+                { "name": "AuthorityName",            "type": "text" },
+                { "name": "LoggedInUserFullName",     "type": "text" },
+                { "name": "LoggedInUserTitle",        "type": "text" },
+                { "name": "LoggedInUserEmail",        "type": "email" },
+                { "name": "LoggedInUserPhoneNumber",  "type": "tel" }
+            ]
+        },
+        {
+            "group": "Facility",
+            "path": "Facility",
+            "fields": [
+                { "name": "FacilityId",               "type": "number" },
+                { "name": "FacilityNumber",           "type": "text" },
+                { "name": "SiteId",                   "type": "int" },
+                { "name": "SiteNumber",               "type": "text" },
+                { "name": "OrganizationAlias",        "type": "text" },
+                { "name": "AccountNumber",            "type": "text" },
+                { "name": "MeterNumber",              "type": "text" },
+                { "name": "SewerNumber",              "type": "text" },
+                { "name": "IsPermitted",              "type": "boolean" },
+                { "name": "HaulerId",                 "type": "number" },
+                { "name": "HaulerNumber",             "type": "text" },
+                { "name": "HaulerName",               "type": "text" },
+                { "name": "HaulerEmail",              "type": "email" },
+                { "name": "AnnualFee",                "type": "number" },
+                { "name": "MohthlyFee",               "type": "number" },
+                { "name": "EffectiveDateUtc",         "type": "date" },
+                { "name": "ApplicationDateUtc",       "type": "date" },
+                { "name": "DailyFlow",                "type": "text" },
+                { "name": "Address",                  "type": "text" },
+                { "name": "MapCategory",              "type": "text" },
+                { "name": "Latitude",                 "type": "number" },
+                { "name": "Longitude",                "type": "number" },
+                { "name": "ReceivingPlant",           "type": "text" },
+                { "name": "TrunkLine",                "type": "text" },
+                { "name": "SiteElevation",            "type": "text" }
+            ]
+        },
+        {
+            "group": "Inspection",
+            "path": "Inspection",
+            "fields": [
+                { "name": "InspectionDueDate",        "type": "date" },
+                { "name": "InspectionCompleteDate",   "type": "date" },
+                { "name": "NextInspectionDate",       "type": "date" },
+                { "name": "LastInspectionDate",       "type": "date" },
+                { "name": "InspectionEventType",      "type": "enum",   "apiPath": "/" }
+            ]
+        }
+    ]
+}

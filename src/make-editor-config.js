@@ -33,40 +33,44 @@ const makeCopyContentButton = () => {
   };
 }
 
-const makeInsertMergeFieldsSelector = () => {  
+const makeInsertMergeFieldsSelector = (config) => {  
   return {
     name: "insertMergeField",
     tooltip: "Insert Merge Field",
     iconURL: "images/merge.png",
     popup: (editor, current, self, close) => {
       let divElement = editor.create.div("merge-field-selector-popup");
-      ReactDOM.render(<MergeFieldSelector editor={editor} close={close}/>, divElement);
+      ReactDOM.render(<MergeFieldSelector editor={editor} close={close} config={config}/>, divElement);
       return divElement;
     }
   };
 }
 
-const makeInsertMergeFieldsInput = () => {  
+const makeInsertMergeFieldsInput = (config) => {  
   return {
     name: "insertMergeInput",
     tooltip: "Insert Merge Input",
     iconURL: "images/input_field.png",
     popup: (editor, current, self, close) => {
       let divElement = editor.create.div("merge-field-input-popup");
-      ReactDOM.render(<MergeFieldInput editor={editor} close={close}/>, divElement);
+      ReactDOM.render(<MergeFieldInput editor={editor} close={close} config={config}/>, divElement);
       return divElement;
     }
   };
 }
 
-const makeEditorButtons = () => {
+const makeEditorButtons = (config) => {
   var copyContentButton = makeCopyContentButton();
-  var mergeFieldSelector = makeInsertMergeFieldsSelector();
-  var mergeFieldInput = makeInsertMergeFieldsInput();
+  if (!config) {
+    return [...defaultButtons, copyContentButton];
+  }
+
+  var mergeFieldSelector = makeInsertMergeFieldsSelector(config);
+  var mergeFieldInput = makeInsertMergeFieldsInput(config);
   return [...defaultButtons, copyContentButton, "|", mergeFieldSelector, "|", mergeFieldInput];
 }
 
-const makeEditorConfig = () => {
+const makeEditorConfig = (config) => {
     return {
     readonly: false,
     toolbar: true,
@@ -80,7 +84,7 @@ const makeEditorConfig = () => {
     askBeforePasteHTML: true,
     askBeforePasteFromWord: true,
     //defaultActionOnPaste: "insert_clear_html",
-    buttons: makeEditorButtons(),
+    buttons: makeEditorButtons(config),
     uploader: {
       insertImageAsBase64URI: true
     },

@@ -1,5 +1,4 @@
 import React from "react";
-import config from "./config";
 import * as _ from 'lodash';
 
 const MergeFieldSelector = (props) => {
@@ -9,7 +8,7 @@ const MergeFieldSelector = (props) => {
   if (!props.close) {
     throw new Error('close is required');
   }
-  if (_.isUndefined(config.mergeFields) || _.isEmpty(config.mergeFields)) {
+  if (_.isUndefined(props.config) || _.isUndefined(props.config.mergeFields) || _.isEmpty(props.config.mergeFields)) {
     throw new Error('config.mergeFields is undefined');
   }
 
@@ -25,17 +24,16 @@ const MergeFieldSelector = (props) => {
 
   return (
     <div className="merge-field-popup">
-        <label className="merge-field-label" for="mergeField">Insert MergeField: </label>
-        <select id="mergeField" name="mergeField" size="10"
+        <label className="merge-field-label" for="mergeFieldSelect">Insert MergeField Select: </label>
+        <select id="mergeFieldSelect" name="mergeFieldSelect" size="10"
           className="merge-field-select" 
           onChange={onMergeFieldSelected}>
             {
-              _.map(config.mergeFields, (group, groupIndex) => {
+              _.map(props.config.mergeFields, (group, groupIndex) => {
                 return (<optgroup key={`g-${groupIndex}`} label={group.group}>
                   {
                     _.map(group.fields, (field, fieldIndex) => {
-                      var fieldName = _.isEmpty(group.path) ? field.name : group.path + '.' + field.name
-                      return <option key={`g-${groupIndex}-f-${fieldIndex}`} className="merge-field-select-option" value={fieldName}>{field.name}</option>
+                      return <option key={`g-${groupIndex}-f-${fieldIndex}`} className="merge-field-select-option" value={field.resolvedName}>{field.name}</option>
                     })
                   }
                 </optgroup>
